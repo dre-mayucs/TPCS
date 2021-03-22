@@ -1,0 +1,768 @@
+
+
+Microchip MPLAB XC8 Assembler V2.10 build 88905656 
+                                                                                               Mon Mar 22 15:07:10 2021
+
+Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1 
+     1                           	processor	16F886
+     2                           	opt	pw 120
+     3                           	opt	flic
+     4                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     5                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+     6                           	psect	maintext,global,class=CODE,split=1,delta=2
+     7                           	psect	text1,local,class=CODE,merge=1,delta=2
+     8                           	dabs	1,0x7E,2
+     9  0000                     
+    10                           ; Version 2.10
+    11                           ; Generated 31/07/2019 GMT
+    12                           ; 
+    13                           ; Copyright © 2019, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    14                           ; All rights reserved.
+    15                           ; 
+    16                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    17                           ; 
+    18                           ; Redistribution and use in source and binary forms, with or without modification, are
+    19                           ; permitted provided that the following conditions are met:
+    20                           ; 
+    21                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    22                           ;        conditions and the following disclaimer.
+    23                           ; 
+    24                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    25                           ;        of conditions and the following disclaimer in the documentation and/or other
+    26                           ;        materials provided with the distribution.
+    27                           ; 
+    28                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    29                           ;        software without specific prior written permission.
+    30                           ; 
+    31                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    32                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    33                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    34                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    35                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    36                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    37                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    38                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    39                           ; 
+    40                           ; 
+    41                           ; Code-generator required, PIC16F886 Definitions
+    42                           ; 
+    43                           ; SFR Addresses
+    44  0000                     	;# 
+    45  0001                     	;# 
+    46  0002                     	;# 
+    47  0003                     	;# 
+    48  0004                     	;# 
+    49  0005                     	;# 
+    50  0006                     	;# 
+    51  0007                     	;# 
+    52  0009                     	;# 
+    53  000A                     	;# 
+    54  000B                     	;# 
+    55  000C                     	;# 
+    56  000D                     	;# 
+    57  000E                     	;# 
+    58  000E                     	;# 
+    59  000F                     	;# 
+    60  0010                     	;# 
+    61  0011                     	;# 
+    62  0012                     	;# 
+    63  0013                     	;# 
+    64  0014                     	;# 
+    65  0015                     	;# 
+    66  0015                     	;# 
+    67  0016                     	;# 
+    68  0017                     	;# 
+    69  0018                     	;# 
+    70  0019                     	;# 
+    71  001A                     	;# 
+    72  001B                     	;# 
+    73  001B                     	;# 
+    74  001C                     	;# 
+    75  001D                     	;# 
+    76  001E                     	;# 
+    77  001F                     	;# 
+    78  0081                     	;# 
+    79  0085                     	;# 
+    80  0086                     	;# 
+    81  0087                     	;# 
+    82  0089                     	;# 
+    83  008C                     	;# 
+    84  008D                     	;# 
+    85  008E                     	;# 
+    86  008F                     	;# 
+    87  0090                     	;# 
+    88  0091                     	;# 
+    89  0092                     	;# 
+    90  0093                     	;# 
+    91  0093                     	;# 
+    92  0093                     	;# 
+    93  0094                     	;# 
+    94  0095                     	;# 
+    95  0096                     	;# 
+    96  0097                     	;# 
+    97  0098                     	;# 
+    98  0099                     	;# 
+    99  009A                     	;# 
+   100  009B                     	;# 
+   101  009C                     	;# 
+   102  009D                     	;# 
+   103  009E                     	;# 
+   104  009F                     	;# 
+   105  0105                     	;# 
+   106  0107                     	;# 
+   107  0108                     	;# 
+   108  0109                     	;# 
+   109  010C                     	;# 
+   110  010C                     	;# 
+   111  010D                     	;# 
+   112  010E                     	;# 
+   113  010F                     	;# 
+   114  0185                     	;# 
+   115  0187                     	;# 
+   116  0188                     	;# 
+   117  0189                     	;# 
+   118  018C                     	;# 
+   119  018D                     	;# 
+   120  0000                     	;# 
+   121  0001                     	;# 
+   122  0002                     	;# 
+   123  0003                     	;# 
+   124  0004                     	;# 
+   125  0005                     	;# 
+   126  0006                     	;# 
+   127  0007                     	;# 
+   128  0009                     	;# 
+   129  000A                     	;# 
+   130  000B                     	;# 
+   131  000C                     	;# 
+   132  000D                     	;# 
+   133  000E                     	;# 
+   134  000E                     	;# 
+   135  000F                     	;# 
+   136  0010                     	;# 
+   137  0011                     	;# 
+   138  0012                     	;# 
+   139  0013                     	;# 
+   140  0014                     	;# 
+   141  0015                     	;# 
+   142  0015                     	;# 
+   143  0016                     	;# 
+   144  0017                     	;# 
+   145  0018                     	;# 
+   146  0019                     	;# 
+   147  001A                     	;# 
+   148  001B                     	;# 
+   149  001B                     	;# 
+   150  001C                     	;# 
+   151  001D                     	;# 
+   152  001E                     	;# 
+   153  001F                     	;# 
+   154  0081                     	;# 
+   155  0085                     	;# 
+   156  0086                     	;# 
+   157  0087                     	;# 
+   158  0089                     	;# 
+   159  008C                     	;# 
+   160  008D                     	;# 
+   161  008E                     	;# 
+   162  008F                     	;# 
+   163  0090                     	;# 
+   164  0091                     	;# 
+   165  0092                     	;# 
+   166  0093                     	;# 
+   167  0093                     	;# 
+   168  0093                     	;# 
+   169  0094                     	;# 
+   170  0095                     	;# 
+   171  0096                     	;# 
+   172  0097                     	;# 
+   173  0098                     	;# 
+   174  0099                     	;# 
+   175  009A                     	;# 
+   176  009B                     	;# 
+   177  009C                     	;# 
+   178  009D                     	;# 
+   179  009E                     	;# 
+   180  009F                     	;# 
+   181  0105                     	;# 
+   182  0107                     	;# 
+   183  0108                     	;# 
+   184  0109                     	;# 
+   185  010C                     	;# 
+   186  010C                     	;# 
+   187  010D                     	;# 
+   188  010E                     	;# 
+   189  010F                     	;# 
+   190  0185                     	;# 
+   191  0187                     	;# 
+   192  0188                     	;# 
+   193  0189                     	;# 
+   194  018C                     	;# 
+   195  018D                     	;# 
+   196  0007                     _PORTC	set	7
+   197  0006                     _PORTB	set	6
+   198  0005                     _PORTA	set	5
+   199  001E                     _ADRESH	set	30
+   200  001F                     _ADCON0	set	31
+   201  00F9                     _GO_nDONE	set	249
+   202  00F8                     _ADON	set	248
+   203  0087                     _TRISC	set	135
+   204  0086                     _TRISB	set	134
+   205  0085                     _TRISA	set	133
+   206  009E                     _ADRESL	set	158
+   207  009F                     _ADCON1	set	159
+   208  0188                     _ANSEL	set	392
+   209                           
+   210                           ; #config settings
+   211  0000                     
+   212                           	psect	cinit
+   213  07FC                     start_initialization:	
+   214  07FC                     __initialization:	
+   215  07FC                     end_of_initialization:	
+   216                           ;End of C runtime variable initialization code
+   217                           
+   218  07FC                     __end_of__initialization:	
+   219  07FC  0183               	clrf	3
+   220  07FD  120A  118A  2F51   	ljmp	_main	;jump to C main() function
+   221                           
+   222                           	psect	cstackCOMMON
+   223  0070                     __pcstackCOMMON:	
+   224  0070                     ?_main:	
+   225  0070                     ?_ADC:	
+   226                           ; 1 bytes @ 0x0
+   227                           
+   228  0070                     ADC@Set0:	
+   229                           ; 2 bytes @ 0x0
+   230                           
+   231                           
+   232                           ; 2 bytes @ 0x0
+   233  0070                     	ds	2
+   234  0072                     ADC@Set1:	
+   235                           
+   236                           ; 2 bytes @ 0x2
+   237  0072                     	ds	2
+   238  0074                     ??_ADC:	
+   239                           
+   240                           ; 1 bytes @ 0x4
+   241  0074                     	ds	1
+   242  0075                     ??_main:	
+   243                           
+   244                           ; 1 bytes @ 0x5
+   245  0075                     	ds	1
+   246  0076                     main@AN_0:	
+   247                           
+   248                           ; 2 bytes @ 0x6
+   249  0076                     	ds	2
+   250  0078                     main@AN_1:	
+   251                           
+   252                           ; 2 bytes @ 0x8
+   253  0078                     	ds	2
+   254  007A                     main@AN_2:	
+   255                           
+   256                           ; 2 bytes @ 0xA
+   257  007A                     	ds	2
+   258  007C                     main@AN_3:	
+   259                           
+   260                           ; 2 bytes @ 0xC
+   261  007C                     	ds	2
+   262                           
+   263                           	psect	maintext
+   264  0751                     __pmaintext:	
+   265 ;;
+   266 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   267 ;;
+   268 ;; *************** function _main *****************
+   269 ;; Defined at:
+   270 ;;		line 48 in file "main.c"
+   271 ;; Parameters:    Size  Location     Type
+   272 ;;		None
+   273 ;; Auto vars:     Size  Location     Type
+   274 ;;  AN_3            2   12[COMMON] int 
+   275 ;;  AN_2            2   10[COMMON] int 
+   276 ;;  AN_1            2    8[COMMON] int 
+   277 ;;  AN_0            2    6[COMMON] int 
+   278 ;; Return value:  Size  Location     Type
+   279 ;;                  1    wreg      void 
+   280 ;; Registers used:
+   281 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   282 ;; Tracked objects:
+   283 ;;		On entry : B00/0
+   284 ;;		On exit  : 0/0
+   285 ;;		Unchanged: 0/0
+   286 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   287 ;;      Params:         0       0       0       0       0
+   288 ;;      Locals:         8       0       0       0       0
+   289 ;;      Temps:          1       0       0       0       0
+   290 ;;      Totals:         9       0       0       0       0
+   291 ;;Total ram usage:        9 bytes
+   292 ;; Hardware stack levels required when called:    1
+   293 ;; This function calls:
+   294 ;;		_ADC
+   295 ;; This function is called by:
+   296 ;;		Startup code after reset
+   297 ;; This function uses a non-reentrant model
+   298 ;;
+   299                           
+   300                           
+   301                           ;psect for function _main
+   302  0751                     _main:	
+   303  0751                     l698:	
+   304                           ;incstack = 0
+   305                           ; Regs used in _main: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   306                           
+   307                           
+   308                           ;main.c: 50:     TRISA = 0b00001111;
+   309  0751  300F               	movlw	15
+   310  0752  1683               	bsf	3,5	;RP0=1, select bank1
+   311  0753  1303               	bcf	3,6	;RP1=0, select bank1
+   312  0754  0085               	movwf	5	;volatile
+   313  0755                     l700:	
+   314                           
+   315                           ;main.c: 51:     TRISB = 0b00000000;
+   316  0755  0186               	clrf	6	;volatile
+   317  0756                     l702:	
+   318                           
+   319                           ;main.c: 52:     TRISC = 0b00000000;
+   320  0756  0187               	clrf	7	;volatile
+   321                           
+   322                           ;main.c: 54:     ANSEL = 0b00001111;
+   323  0757  300F               	movlw	15
+   324  0758  1683               	bsf	3,5	;RP0=1, select bank3
+   325  0759  1703               	bsf	3,6	;RP1=1, select bank3
+   326  075A  0088               	movwf	8	;volatile
+   327  075B                     l704:	
+   328                           
+   329                           ;main.c: 56:     PORTA = 0b00000000;
+   330  075B  1283               	bcf	3,5	;RP0=0, select bank0
+   331  075C  1303               	bcf	3,6	;RP1=0, select bank0
+   332  075D  0185               	clrf	5	;volatile
+   333  075E                     l706:	
+   334                           
+   335                           ;main.c: 57:     PORTB = 0b00000000;
+   336  075E  0186               	clrf	6	;volatile
+   337  075F                     l708:	
+   338                           
+   339                           ;main.c: 58:     PORTC = 0b00000000;
+   340  075F  0187               	clrf	7	;volatile
+   341  0760                     l710:	
+   342                           
+   343                           ;main.c: 66:         int AN_0 = ADC(0b00000001, 0b10000000);
+   344  0760  3001               	movlw	1
+   345  0761  00F0               	movwf	ADC@Set0
+   346  0762  3000               	movlw	0
+   347  0763  00F1               	movwf	ADC@Set0+1
+   348  0764  3080               	movlw	128
+   349  0765  00F2               	movwf	ADC@Set1
+   350  0766  3000               	movlw	0
+   351  0767  00F3               	movwf	ADC@Set1+1
+   352  0768  120A  118A  2734  120A  118A  	fcall	_ADC
+   353  076D  0871               	movf	?_ADC+1,w
+   354  076E  00F7               	movwf	main@AN_0+1
+   355  076F  0870               	movf	?_ADC,w
+   356  0770  00F6               	movwf	main@AN_0
+   357  0771                     l712:	
+   358                           
+   359                           ;main.c: 67:         int AN_1 = ADC(0b00000101, 0b10000000);
+   360  0771  3005               	movlw	5
+   361  0772  00F0               	movwf	ADC@Set0
+   362  0773  3000               	movlw	0
+   363  0774  00F1               	movwf	ADC@Set0+1
+   364  0775  3080               	movlw	128
+   365  0776  00F2               	movwf	ADC@Set1
+   366  0777  3000               	movlw	0
+   367  0778  00F3               	movwf	ADC@Set1+1
+   368  0779  120A  118A  2734  120A  118A  	fcall	_ADC
+   369  077E  0871               	movf	?_ADC+1,w
+   370  077F  00F9               	movwf	main@AN_1+1
+   371  0780  0870               	movf	?_ADC,w
+   372  0781  00F8               	movwf	main@AN_1
+   373  0782                     l714:	
+   374                           
+   375                           ;main.c: 68:         int AN_2 = ADC(0b00001001, 0b10000000);
+   376  0782  3009               	movlw	9
+   377  0783  00F0               	movwf	ADC@Set0
+   378  0784  3000               	movlw	0
+   379  0785  00F1               	movwf	ADC@Set0+1
+   380  0786  3080               	movlw	128
+   381  0787  00F2               	movwf	ADC@Set1
+   382  0788  3000               	movlw	0
+   383  0789  00F3               	movwf	ADC@Set1+1
+   384  078A  120A  118A  2734  120A  118A  	fcall	_ADC
+   385  078F  0871               	movf	?_ADC+1,w
+   386  0790  00FB               	movwf	main@AN_2+1
+   387  0791  0870               	movf	?_ADC,w
+   388  0792  00FA               	movwf	main@AN_2
+   389  0793                     l716:	
+   390                           
+   391                           ;main.c: 69:         int AN_3 = ADC(0b00001101, 0b10000000);
+   392  0793  300D               	movlw	13
+   393  0794  00F0               	movwf	ADC@Set0
+   394  0795  3000               	movlw	0
+   395  0796  00F1               	movwf	ADC@Set0+1
+   396  0797  3080               	movlw	128
+   397  0798  00F2               	movwf	ADC@Set1
+   398  0799  3000               	movlw	0
+   399  079A  00F3               	movwf	ADC@Set1+1
+   400  079B  120A  118A  2734  120A  118A  	fcall	_ADC
+   401  07A0  0871               	movf	?_ADC+1,w
+   402  07A1  00FD               	movwf	main@AN_3+1
+   403  07A2  0870               	movf	?_ADC,w
+   404  07A3  00FC               	movwf	main@AN_3
+   405  07A4                     l718:	
+   406                           
+   407                           ;main.c: 71:         PORTC = 0b00000000;
+   408  07A4  1283               	bcf	3,5	;RP0=0, select bank0
+   409  07A5  1303               	bcf	3,6	;RP1=0, select bank0
+   410  07A6  0187               	clrf	7	;volatile
+   411  07A7                     l720:	
+   412                           
+   413                           ;main.c: 73:         if(AN_0 > 150){
+   414  07A7  0877               	movf	main@AN_0+1,w
+   415  07A8  3A80               	xorlw	128
+   416  07A9  00FF               	movwf	btemp+1
+   417  07AA  3080               	movlw	128
+   418  07AB  027F               	subwf	btemp+1,w
+   419  07AC  1D03               	skipz
+   420  07AD  2FB0               	goto	u75
+   421  07AE  3097               	movlw	151
+   422  07AF  0276               	subwf	main@AN_0,w
+   423  07B0                     u75:	
+   424  07B0  1C03               	skipc
+   425  07B1  2FB3               	goto	u71
+   426  07B2  2FB4               	goto	u70
+   427  07B3                     u71:	
+   428  07B3  2FBA               	goto	l724
+   429  07B4                     u70:	
+   430  07B4                     l722:	
+   431                           
+   432                           ;main.c: 74:             PORTC += 0b00010000;
+   433  07B4  3010               	movlw	16
+   434  07B5  00F5               	movwf	??_main
+   435  07B6  0875               	movf	??_main,w
+   436  07B7  1283               	bcf	3,5	;RP0=0, select bank0
+   437  07B8  1303               	bcf	3,6	;RP1=0, select bank0
+   438  07B9  0787               	addwf	7,f	;volatile
+   439  07BA                     l724:	
+   440                           
+   441                           ;main.c: 77:         if(AN_1 > 150){
+   442  07BA  0879               	movf	main@AN_1+1,w
+   443  07BB  3A80               	xorlw	128
+   444  07BC  00FF               	movwf	btemp+1
+   445  07BD  3080               	movlw	128
+   446  07BE  027F               	subwf	btemp+1,w
+   447  07BF  1D03               	skipz
+   448  07C0  2FC3               	goto	u85
+   449  07C1  3097               	movlw	151
+   450  07C2  0278               	subwf	main@AN_1,w
+   451  07C3                     u85:	
+   452  07C3  1C03               	skipc
+   453  07C4  2FC6               	goto	u81
+   454  07C5  2FC7               	goto	u80
+   455  07C6                     u81:	
+   456  07C6  2FCD               	goto	l728
+   457  07C7                     u80:	
+   458  07C7                     l726:	
+   459                           
+   460                           ;main.c: 78:             PORTC += 0b00100000;
+   461  07C7  3020               	movlw	32
+   462  07C8  00F5               	movwf	??_main
+   463  07C9  0875               	movf	??_main,w
+   464  07CA  1283               	bcf	3,5	;RP0=0, select bank0
+   465  07CB  1303               	bcf	3,6	;RP1=0, select bank0
+   466  07CC  0787               	addwf	7,f	;volatile
+   467  07CD                     l728:	
+   468                           
+   469                           ;main.c: 81:         if(AN_2 > 150){
+   470  07CD  087B               	movf	main@AN_2+1,w
+   471  07CE  3A80               	xorlw	128
+   472  07CF  00FF               	movwf	btemp+1
+   473  07D0  3080               	movlw	128
+   474  07D1  027F               	subwf	btemp+1,w
+   475  07D2  1D03               	skipz
+   476  07D3  2FD6               	goto	u95
+   477  07D4  3097               	movlw	151
+   478  07D5  027A               	subwf	main@AN_2,w
+   479  07D6                     u95:	
+   480  07D6  1C03               	skipc
+   481  07D7  2FD9               	goto	u91
+   482  07D8  2FDA               	goto	u90
+   483  07D9                     u91:	
+   484  07D9  2FE0               	goto	l732
+   485  07DA                     u90:	
+   486  07DA                     l730:	
+   487                           
+   488                           ;main.c: 82:             PORTC += 0b01000000;
+   489  07DA  3040               	movlw	64
+   490  07DB  00F5               	movwf	??_main
+   491  07DC  0875               	movf	??_main,w
+   492  07DD  1283               	bcf	3,5	;RP0=0, select bank0
+   493  07DE  1303               	bcf	3,6	;RP1=0, select bank0
+   494  07DF  0787               	addwf	7,f	;volatile
+   495  07E0                     l732:	
+   496                           
+   497                           ;main.c: 85:         if(AN_3 > 150){
+   498  07E0  087D               	movf	main@AN_3+1,w
+   499  07E1  3A80               	xorlw	128
+   500  07E2  00FF               	movwf	btemp+1
+   501  07E3  3080               	movlw	128
+   502  07E4  027F               	subwf	btemp+1,w
+   503  07E5  1D03               	skipz
+   504  07E6  2FE9               	goto	u105
+   505  07E7  3097               	movlw	151
+   506  07E8  027C               	subwf	main@AN_3,w
+   507  07E9                     u105:	
+   508  07E9  1C03               	skipc
+   509  07EA  2FEC               	goto	u101
+   510  07EB  2FED               	goto	u100
+   511  07EC                     u101:	
+   512  07EC  2FF3               	goto	l736
+   513  07ED                     u100:	
+   514  07ED                     l734:	
+   515                           
+   516                           ;main.c: 86:             PORTC += 0b10000000;
+   517  07ED  3080               	movlw	128
+   518  07EE  00F5               	movwf	??_main
+   519  07EF  0875               	movf	??_main,w
+   520  07F0  1283               	bcf	3,5	;RP0=0, select bank0
+   521  07F1  1303               	bcf	3,6	;RP1=0, select bank0
+   522  07F2  0787               	addwf	7,f	;volatile
+   523  07F3                     l736:	
+   524                           
+   525                           ;main.c: 88:         _delay((unsigned long)((100)*(20000000/4000000.0)));
+   526  07F3  30A6               	movlw	166
+   527  07F4  00F5               	movwf	??_main
+   528  07F5                     u117:	
+   529  07F5  0BF5               	decfsz	??_main,f
+   530  07F6  2FF5               	goto	u117
+   531  07F7  0000               	nop
+   532  07F8  2F60               	goto	l710
+   533  07F9  120A  118A  2800   	ljmp	start
+   534  07FC                     __end_of_main:	
+   535                           
+   536                           	psect	text1
+   537  0734                     __ptext1:	
+   538 ;; *************** function _ADC *****************
+   539 ;; Defined at:
+   540 ;;		line 29 in file "main.c"
+   541 ;; Parameters:    Size  Location     Type
+   542 ;;  Set0            2    0[COMMON] const int 
+   543 ;;  Set1            2    2[COMMON] const int 
+   544 ;; Auto vars:     Size  Location     Type
+   545 ;;		None
+   546 ;; Return value:  Size  Location     Type
+   547 ;;                  2    0[COMMON] int 
+   548 ;; Registers used:
+   549 ;;		wreg
+   550 ;; Tracked objects:
+   551 ;;		On entry : 0/0
+   552 ;;		On exit  : 0/0
+   553 ;;		Unchanged: 0/0
+   554 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   555 ;;      Params:         4       0       0       0       0
+   556 ;;      Locals:         0       0       0       0       0
+   557 ;;      Temps:          1       0       0       0       0
+   558 ;;      Totals:         5       0       0       0       0
+   559 ;;Total ram usage:        5 bytes
+   560 ;; Hardware stack levels used:    1
+   561 ;; This function calls:
+   562 ;;		Nothing
+   563 ;; This function is called by:
+   564 ;;		_main
+   565 ;; This function uses a non-reentrant model
+   566 ;;
+   567                           
+   568                           
+   569                           ;psect for function _ADC
+   570  0734                     _ADC:	
+   571  0734                     l688:	
+   572                           ;incstack = 0
+   573                           ; Regs used in _ADC: [wreg]
+   574                           
+   575                           
+   576                           ;main.c: 29: int ADC(const int Set0, const int Set1);main.c: 30: {;main.c: 31:     ADCON
+      +                          0 = Set0;
+   577  0734  0870               	movf	ADC@Set0,w
+   578  0735  1283               	bcf	3,5	;RP0=0, select bank0
+   579  0736  1303               	bcf	3,6	;RP1=0, select bank0
+   580  0737  009F               	movwf	31	;volatile
+   581                           
+   582                           ;main.c: 32:     ADCON1 = Set1;
+   583  0738  0872               	movf	ADC@Set1,w
+   584  0739  1683               	bsf	3,5	;RP0=1, select bank1
+   585  073A  1303               	bcf	3,6	;RP1=0, select bank1
+   586  073B  009F               	movwf	31	;volatile
+   587  073C                     l690:	
+   588                           
+   589                           ;main.c: 35:      ADON = 1;
+   590  073C  1283               	bcf	3,5	;RP0=0, select bank0
+   591  073D  1303               	bcf	3,6	;RP1=0, select bank0
+   592  073E  141F               	bsf	31,0	;volatile
+   593                           
+   594                           ;main.c: 38:     _delay((unsigned long)((20)*(20000000/4000000.0)));
+   595  073F  3021               	movlw	33
+   596  0740  00F4               	movwf	??_ADC
+   597  0741                     u127:	
+   598  0741  0BF4               	decfsz	??_ADC,f
+   599  0742  2F41               	goto	u127
+   600  0743                     l692:	
+   601                           
+   602                           ;main.c: 41:     GO_nDONE = 1;
+   603  0743  1283               	bcf	3,5	;RP0=0, select bank0
+   604  0744  1303               	bcf	3,6	;RP1=0, select bank0
+   605  0745  149F               	bsf	31,1	;volatile
+   606  0746                     l31:	
+   607                           ;main.c: 44:     while(GO_nDONE);
+   608                           
+   609  0746  189F               	btfsc	31,1	;volatile
+   610  0747  2F49               	goto	u61
+   611  0748  2F4A               	goto	u60
+   612  0749                     u61:	
+   613  0749  2F46               	goto	l31
+   614  074A                     u60:	
+   615  074A                     l694:	
+   616                           
+   617                           ;main.c: 45:     return (ADRESH<<8) + ADRESL;
+   618  074A  081E               	movf	30,w	;volatile
+   619  074B  00F1               	movwf	?_ADC+1
+   620  074C  1683               	bsf	3,5	;RP0=1, select bank1
+   621  074D  1303               	bcf	3,6	;RP1=0, select bank1
+   622  074E  081E               	movf	30,w	;volatile
+   623  074F  00F0               	movwf	?_ADC
+   624  0750                     l34:	
+   625  0750  0008               	return
+   626  0751                     __end_of_ADC:	
+   627  007E                     btemp	set	126	;btemp
+   628  007E                     wtemp0	set	126
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14     14      14
+    BANK0            80      0       0
+    BANK1            80      0       0
+    BANK3            96      0       0
+    BANK2            96      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    _main->_ADC
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 9     9      0     744
+                                              5 COMMON     9     9      0
+                                _ADC
+ ---------------------------------------------------------------------------------
+ (1) _ADC                                                  5     1      4     652
+                                              0 COMMON     5     1      4
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _ADC
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            E      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMMON               E      E       E       1      100.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+STACK                0      0       0       2        0.0%
+ABS                  0      0       0       3        0.0%
+BITBANK0            50      0       0       4        0.0%
+BITSFR3              0      0       0       4        0.0%
+SFR3                 0      0       0       4        0.0%
+BANK0               50      0       0       5        0.0%
+BITSFR2              0      0       0       5        0.0%
+SFR2                 0      0       0       5        0.0%
+BITBANK1            50      0       0       6        0.0%
+BANK1               50      0       0       7        0.0%
+BITBANK3            60      0       0       8        0.0%
+BANK3               60      0       0       9        0.0%
+BITBANK2            60      0       0      10        0.0%
+BANK2               60      0       0      11        0.0%
+DATA                 0      0       0      12        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.10 build 88905656 
+Symbol Table                                                                                   Mon Mar 22 15:07:10 2021
+
+            __CFG_CP$OFF 0000                       l31 0746                       l34 0750  
+                     u60 074A                       u61 0749                       u70 07B4  
+                     u71 07B3                       u80 07C7                       u81 07C6  
+                     u90 07DA                       u91 07D9                       u75 07B0  
+                     u85 07C3                       u95 07D6                      _ADC 0734  
+                    l700 0755                      l710 0760                      l702 0756  
+                    l720 07A7                      l712 0771                      l704 075B  
+                    l730 07DA                      l722 07B4                      l714 0782  
+                    l706 075E                      l732 07E0                      l724 07BA  
+                    l716 0793                      l708 075F                      l734 07ED  
+                    l726 07C7                      l718 07A4                      l736 07F3  
+                    l728 07CD                      l690 073C                      l692 0743  
+                    l694 074A                      l688 0734                      l698 0751  
+                    u100 07ED                      u101 07EC                      u105 07E9  
+                    u117 07F5                      u127 0741             __CFG_CPD$OFF 0000  
+           __CFG_IESO$ON 0000             __CFG_FOSC$HS 0000                     ?_ADC 0070  
+           __CFG_LVP$OFF 0000                     _ADON 00F8             __CFG_WRT$OFF 0000  
+                   _main 0751                     btemp 007E            __CFG_BOREN$ON 0000  
+                   start 0000            __CFG_MCLRE$ON 0000                    ??_ADC 0074  
+                  ?_main 0070            __CFG_WDTE$OFF 0000                    _ANSEL 0188  
+                  _PORTA 0005                    _PORTB 0006                    _PORTC 0007  
+                  _TRISA 0085                    _TRISB 0086                    _TRISC 0087  
+         __CFG_FCMEN$OFF 0000                    status 0003                    wtemp0 007E  
+        __initialization 07FC             __end_of_main 07FC                   ??_main 0075  
+                 _ADCON0 001F                   _ADCON1 009F                   _ADRESH 001E  
+                 _ADRESL 009E           __CFG_PWRTE$OFF 0000  __end_of__initialization 07FC  
+         __pcstackCOMMON 0070                  ADC@Set0 0070                  ADC@Set1 0072  
+             __pmaintext 0751                  __ptext1 0734             __size_of_ADC 001D  
+   end_of_initialization 07FC      start_initialization 07FC              __end_of_ADC 0751  
+              ___latbits 0002                 _GO_nDONE 00F9        __CFG_BOR4V$BOR40V 0000  
+          __size_of_main 00AB                 main@AN_0 0076                 main@AN_1 0078  
+               main@AN_2 007A                 main@AN_3 007C  
