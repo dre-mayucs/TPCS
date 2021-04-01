@@ -2401,6 +2401,7 @@ extern __bank0 __bit __timeout;
 
 
 
+
 int ADC(const int Set0, const int Set1)
 {
     ADCON0 = Set0;
@@ -2410,7 +2411,7 @@ int ADC(const int Set0, const int Set1)
      ADON = 1;
 
 
-    _delay((unsigned long)((20)*(20000000/4000000.0)));
+    _delay((unsigned long)((40)*(20000000/4000000.0)));
 
 
     GO_nDONE = 1;
@@ -2460,8 +2461,7 @@ void main(void)
         if(AN_3 > 150){
             PORTC += 0b10000000;
         }
-        _delay((unsigned long)((100)*(20000000/4000000.0)));
     }
-
+    _delay((unsigned long)((1)*(20000000/4000.0)));
     return;
 }

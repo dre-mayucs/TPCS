@@ -11,9 +11,9 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"29 F:\Dev\Herdware\886Test.X\main.c
+"30 F:\Dev\GitHub\TPCS\PIC\886Test.X\main.c
 [v _ADC ADC `(i  1 e 2 0 ]
-"48
+"49
 [v _main main `(v  1 e 1 0 ]
 "166 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f886.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
@@ -41,23 +41,23 @@
 [v _ADON ADON `VEb  1 e 0 @248 ]
 "3720
 [v _GO_nDONE GO_nDONE `VEb  1 e 0 @249 ]
-"48 F:\Dev\Herdware\886Test.X\main.c
+"49 F:\Dev\GitHub\TPCS\PIC\886Test.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"69
+"70
 [v main@AN_3 AN_3 `i  1 a 2 12 ]
-"68
+"69
 [v main@AN_2 AN_2 `i  1 a 2 10 ]
-"67
+"68
 [v main@AN_1 AN_1 `i  1 a 2 8 ]
-"66
+"67
 [v main@AN_0 AN_0 `i  1 a 2 6 ]
 "92
 } 0
-"29
+"30
 [v _ADC ADC `(i  1 e 2 0 ]
 {
 [v ADC@Set0 Set0 `DCi  1 p 2 0 ]
 [v ADC@Set1 Set1 `DCi  1 p 2 2 ]
-"46
+"47
 } 0

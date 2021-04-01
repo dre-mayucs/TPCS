@@ -25,6 +25,7 @@
 #define _XTAL_FREQ  20000000
 #define true 1
 #define false 0
+#define SENS 150
 
 int ADC(const int Set0, const int Set1)
 {
@@ -34,8 +35,8 @@ int ADC(const int Set0, const int Set1)
      //AD変換ON
      ADON = 1;
      
-    //アクィジション時間　20us
-    __delay_us(20);
+    //アクィジション時間　40us
+    __delay_us(40);
         
     //AD変換開始
     GO_nDONE = 1;
@@ -70,23 +71,22 @@ void main(void)
         
         PORTC = 0b00000000;
         
-        if(AN_0 > 150){
+        if(AN_0 > SENS){
             PORTC += 0b00010000;
         }
         
-        if(AN_1 > 150){
+        if(AN_1 > SENS){
             PORTC += 0b00100000;
         }
         
-        if(AN_2 > 150){
+        if(AN_2 > SENS){
             PORTC += 0b01000000;
         }
         
-        if(AN_3 > 150){
+        if(AN_3 > SENS){
             PORTC += 0b10000000;
         }
-        __delay_us(100);
     }
-    
+    __delay_ms(1);
     return;
 }

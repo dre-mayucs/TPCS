@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.10\pic\dat\en_msgs.txt \
   -cs -h+dist/default/production\886Test.X.production.sym \
   --cmf=dist/default/production\886Test.X.production.cmf -z -Q16F886 \
-  -oC:\Users\hato1\AppData\Local\Temp\sel4.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\hato1\AppData\Local\Temp\som4.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/886Test.X.production.map -E1 -ver=XC8 \
   --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -pfunctab=ENTRY -ACONFIG=02007h-02008h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
-  -DENTRY=2 -k C:\Users\hato1\AppData\Local\Temp\sel4.o \
+  -DENTRY=2 -k C:\Users\hato1\AppData\Local\Temp\som4.o \
   dist/default/production\886Test.X.production.o 
 
 Object code version is 3.11
@@ -28,13 +28,13 @@ Machine type is 16F886
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\hato1\AppData\Local\Temp\sel4.o
+C:\Users\hato1\AppData\Local\Temp\som4.o
                 end_init                              0        0        3        0       0
                 config                             2007     2007        2     400E       0
 dist/default/production\886Test.X.production.o
                 cinit                               7FC      7FC        4      FF8       0
-                text1                               734      734       1D      E68       0
-                maintext                            751      751       AB      EA2       0
+                text1                               738      738       1E      E70       0
+                maintext                            756      756       A6      EAC       0
                 cstackCOMMON                         70       70        E       70       1
 
 TOTAL           Name                               Link     Load   Length     Space
@@ -43,8 +43,8 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   CODE           
                 end_init                              0        0        3         0
                 cinit                               7FC      7FC        4         0
-                text1                               734      734       1D         0
-                maintext                            751      751       AB         0
+                text1                               738      738       1E         0
+                maintext                            756      756       A6         0
 
         CLASS   STRCODE        
 
@@ -91,8 +91,8 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
                 cstackCOMMON                   000070  00000E  00007E        70       1  COMMON      1
-                text1                          000734  00001D  000751       E68       0  CODE        2
-                maintext                       000751  0000AB  0007FC       EA2       0  CODE        2
+                text1                          000738  00001E  000756       E70       0  CODE        2
+                maintext                       000756  0000A6  0007FC       EAC       0  CODE        2
                 cinit                          0007FC  000004  000800       FF8       0  CODE        2
                 config                         002007  000002  002009      400E       0  CONFIG      2
 
@@ -104,12 +104,12 @@ UNUSED ADDRESS RANGES
         BANK1            00A0-00EF             50           1
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
-        CODE             0003-0733            731           2
+        CODE             0003-0737            735           2
                          0800-1FFF            800
-        CONST            0003-0733            100           2
+        CONST            0003-0737            100           2
                          0800-1FFF            100
         EEDATA           2100-21FF            100           2
-        ENTRY            0003-0733            100           2
+        ENTRY            0003-0737            100           2
                          0800-1FFF            100
         IDLOC            2000-2003              4           2
         RAM              0020-006F             50           1
@@ -121,9 +121,9 @@ UNUSED ADDRESS RANGES
         SFR2             0100-010F             10           1
         SFR3             0180-018F             10           1
         STACK            0110-016F             60           1
-        STRCODE          0003-0733            731           2
+        STRCODE          0003-0737            735           2
                          0800-1FFF           1800
-        STRING           0003-0733            100           2
+        STRING           0003-0737            100           2
                          0800-1FFF            100
 
                                   Symbol Table
@@ -131,7 +131,7 @@ UNUSED ADDRESS RANGES
 ?_ADC                    cstackCOMMON 0070
 ADC@Set0                 cstackCOMMON 0070
 ADC@Set1                 cstackCOMMON 0072
-_ADC                     text1        0734
+_ADC                     text1        0738
 _ADCON0                  (abs)        001F
 _ADCON1                  (abs)        009F
 _ADON                    (abs)        00F8
@@ -230,16 +230,16 @@ ___latbits               (abs)        0002
 ___sp                    stack        0000
 ___stackhi               (abs)        0000
 ___stacklo               (abs)        0000
-__end_of_ADC             text1        0751
+__end_of_ADC             text1        0756
 __end_of__initialization cinit        07FC
 __end_of_main            maintext     07FC
 __initialization         cinit        07FC
 __pcstackCOMMON          cstackCOMMON 0070
-__pmaintext              maintext     0751
-__ptext1                 text1        0734
+__pmaintext              maintext     0756
+__ptext1                 text1        0738
 __size_of_ADC            (abs)        0000
 __size_of_main           (abs)        0000
-_main                    maintext     0751
+_main                    maintext     0756
 btemp                    (abs)        007E
 end_of_initialization    cinit        07FC
 intlevel0                functab      0000
@@ -262,7 +262,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 48 in file "main.c"
+		line 49 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -294,7 +294,7 @@ Total ram usage:        9 bytes
 
  *************** function _ADC *****************
  Defined at:
-		line 29 in file "main.c"
+		line 30 in file "main.c"
  Parameters:    Size  Location     Type
   Set0            2    0[COMMON] const int 
   Set1            2    2[COMMON] const int 
@@ -332,8 +332,8 @@ shared
 shared estimated size: 1
 
 main.c
-		_ADC           		CODE           	0734	0000	30
-		_main          		CODE           	0751	0000	172
+		_ADC           		CODE           	0738	0000	31
+		_main          		CODE           	0756	0000	167
 
-main.c estimated size: 202
+main.c estimated size: 198
 

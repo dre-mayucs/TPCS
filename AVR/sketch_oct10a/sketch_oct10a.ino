@@ -20,6 +20,36 @@ void loop() {
     Serial.print(" : フォトトランジスタ値 : ");
     Serial.println(i - 3);
   }
+
+  if(digitalRead(3) == HIGH){
+    Keyboard.press('A');
+  }
+  else{
+    Keyboard.release('A');
+  }
+  
+  if(digitalRead(4) == HIGH){
+    Keyboard.press('B');
+  }
+  else{
+    Keyboard.release('B');
+  }
+  
+  if(digitalRead(5) == HIGH){
+    Keyboard.press('C');
+  }
+  else{
+    Keyboard.release('C');
+  }
+  
+  if(digitalRead(6) == HIGH){
+    Keyboard.press('D');
+  }
+  else{
+    Keyboard.release('D');
+  }
+  
+  
   Serial.println();
   delay(1);
 }
